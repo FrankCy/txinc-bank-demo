@@ -31,9 +31,6 @@ public class BankService {
     @Autowired
     private BankBClient bankBClient;
 
-    @TxcTransaction
-    @TccTransaction
-    @TxTransaction
     @LcnTransaction
     @Transactional
     public String start(int money) {
