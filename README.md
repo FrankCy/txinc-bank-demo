@@ -1,7 +1,7 @@
 # txinc-bank-demo #
 
 ## 简介 ##
-访问bank-a执行新增，a会rpc调用b，并减少，如果rpc-b发生错误，a的事务无法控制，需要采用分布式事务解决方案达到数据一致性。
+bank-a的业务是减少用户金钱，rpc bank-b则是增加用户金钱，当访问bank-a时，bank-a通过feign rpc调用bank-b先执行增加用户金钱，然后回到bank-a执行用户减钱，如果此时，bank-a出现问题，rpc bank-b和bank-a的事务都不会提交。
 
 ## 项目介绍 ##
 
